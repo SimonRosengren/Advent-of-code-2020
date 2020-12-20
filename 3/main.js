@@ -1,6 +1,5 @@
-var fs = require('fs')
+const fs = require('fs')
 const input = fs.readFileSync('./input.txt', 'utf8')
-
 const map = input.split('\n')
 
 let currentX = 0;
@@ -9,9 +8,6 @@ let currentX = 0;
 
 // Part 1
 // map.forEach((c, index) => {
-//     var test = c.toString();
-//     test = test.substring(0, currentX) + 'x' + test.substring(currentX + 1);
-//     console.log(test)
 //     if (c[currentX] === '#') {
 //         nrOfTrees++;
 //     }
@@ -32,17 +28,12 @@ const slopes = [
     [7, 1],
     [1, 2]
 ]
-
 let results = [];
 
 slopes.forEach((slope, i) => {
-    console.log('*********************NEW SLOPE******************************')
     let nrOfTrees = 0;
     currentX = 0;
     for (let j = 0; j < map.length; j+=slopes[i][1]) {
-        var test = map[j].toString();
-        test = test.substring(0, currentX) + 'x' + test.substring(currentX + 1);
-        console.log(test)
         if (map[j][currentX] === '#') {
             nrOfTrees++;
         }
